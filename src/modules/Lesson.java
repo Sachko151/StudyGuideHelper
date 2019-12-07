@@ -1,6 +1,11 @@
 package modules;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lesson implements IHasKeyFeatures {
     String subjectName;
@@ -48,13 +53,22 @@ public class Lesson implements IHasKeyFeatures {
     }
 
     @Override
-    public void create() {
-
+    public void create(Path path, String content) {
+        try {
+            Files.write(path, content.getBytes(), StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
     }
 
     @Override
-    public void read() {
-        System.out.println("Lesson name is " + this.lessonName + " and the definitions are " + this.definitions);
+    public void read(Path path) {
+        try {
+            List<String> list = Files.readAllLines(path);
+            list.forEach(line -> System.out.println(line));
+        } catch (IOException e) {
+            System.out.println("Error reading file");
+        }
     }
 
     @Override

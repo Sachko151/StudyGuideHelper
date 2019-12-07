@@ -1,10 +1,12 @@
 package modules;
 
+import java.nio.file.Path;
+
 public interface IHasKeyFeatures {
 
-    void create();
+    void create(Path path, String content);
 
-    void read();
+    void read(Path path);
 
     void update();
 
