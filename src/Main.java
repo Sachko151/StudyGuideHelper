@@ -26,7 +26,4 @@ public class Main {
 
 
     }
-    public void testPlaceholders(){
-
-    }
 }

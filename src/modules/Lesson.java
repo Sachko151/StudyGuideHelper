@@ -7,7 +7,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lesson implements IHasKeyFeatures {
+public class Lesson implements ICRUD {
     String subjectName;
     String lessonName;
     int pageInStudentBook;

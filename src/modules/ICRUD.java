@@ -2,7 +2,7 @@ package modules;
 
 import java.nio.file.Path;
 
-public interface IHasKeyFeatures {
+public interface ICRUD {
 
     void create(Path path, String content);
 
