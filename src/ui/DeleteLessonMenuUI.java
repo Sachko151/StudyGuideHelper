@@ -1,8 +1,5 @@
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,18 +18,6 @@ public class DeleteLessonMenuUI extends JFrame implements IButtonCode{
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DeleteLessonMenuUI frame = new DeleteLessonMenuUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -294,7 +279,7 @@ public class DeleteLessonMenuUI extends JFrame implements IButtonCode{
 		JButton btnDelContinue = new JButton("\u041F\u0440\u043E\u0434\u044A\u043B\u0436\u0438");
 		btnDelContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ButtonPressedCode();
+				buttonPressedCode();
 			}
 		});
 		btnDelContinue.setBackground(Color.GREEN);
@@ -305,7 +290,7 @@ public class DeleteLessonMenuUI extends JFrame implements IButtonCode{
 		JButton btnDelBack = new JButton("\u041D\u0430\u0437\u0430\u0434");
 		btnDelBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BackButtonPressedCode();
+				backButtonPressed();
 			}
 		});
 		btnDelBack.setBackground(Color.RED);
@@ -313,18 +298,20 @@ public class DeleteLessonMenuUI extends JFrame implements IButtonCode{
 		btnDelBack.setBounds(470, 539, 346, 69);
 		contentPane.add(btnDelBack);
 	}
-	public void ButtonPressedCode() {
+	public void buttonPressedCode() {
 		StartMenuUI startMenuUi = new StartMenuUI();
 		startMenuUi.setVisible(true);
 		
 		DeleteLessonMenuUI deleteLessonMenuUi = new DeleteLessonMenuUI();
 		deleteLessonMenuUi.dispose();
+		dispose();
 	}
-	public void BackButtonPressedCode() {
+	public void backButtonPressed() {
 		StartMenuUI startMenuUi = new StartMenuUI();
 		startMenuUi.setVisible(true);
 		
 		DeleteLessonMenuUI deleteLessonMenuUi = new DeleteLessonMenuUI();
 		deleteLessonMenuUi.dispose();
+		dispose();
 	}
 }

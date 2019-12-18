@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lesson implements ICRUD {
+    private static final String DIRECTORY_FINAL = "C:\\Users\\8530w\\Desktop\\Java\\GeographyHelper\\src\\textContent";
+
+
     String subjectName;
     String lessonName;
     int pageInStudentBook;
@@ -79,5 +82,10 @@ public class Lesson implements ICRUD {
     @Override
     public void delete() {
 
+    }
+
+    public String getMajorInfo() {
+        return "Subject name is: " + this.subjectName + " lesson name is " + this.lessonName + " page in Student Book "
+                + this.pageInStudentBook + "\n" + "Defintions are: " + this.definitions;
     }
 }

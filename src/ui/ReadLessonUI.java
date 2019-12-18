@@ -1,8 +1,5 @@
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,31 +10,25 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class ReadLessonUI extends JFrame implements IButtonCode {
 
 	private JPanel contentPane;
+	public static final String DIRECTORY = "C:\\Users\\8530w\\Desktop\\Java\\GeographyHelper\\src\\textContent";
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ReadLessonUI frame = new ReadLessonUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ReadLessonUI() {
+	public ReadLessonUI(String getTitleOfContentToRead) {
 		setTitle("StudyGuide");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 899, 653);
@@ -64,11 +55,12 @@ public class ReadLessonUI extends JFrame implements IButtonCode {
 		JTextArea txtContent = new JTextArea();
 		txtContent.setBounds(10, 144, 835, 460);
 		contentPane.add(txtContent);
+		txtContent.setText(textToBeDisplayed(getTitleOfContentToRead));
 		
 		JButton btnReadActBack = new JButton("\u041D\u0430\u0437\u0430\u0434");
 		btnReadActBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ButtonPressedCode();
+				buttonPressedCode();
 			}
 		});
 		btnReadActBack.setBackground(Color.RED);
@@ -91,11 +83,30 @@ public class ReadLessonUI extends JFrame implements IButtonCode {
 		lblLessonName.setBounds(257, 75, 411, 35);
 		contentPane.add(lblLessonName);
 	}
-	public void ButtonPressedCode() {
+	public void buttonPressedCode() {
 		ReadLessonMenuUI readLessonMenuUi = new ReadLessonMenuUI();
 	readLessonMenuUi.setVisible(true);
 		
-		ReadLessonUI readLessonUi = new ReadLessonUI();
+		ReadLessonUI readLessonUi = new ReadLessonUI(null);
 		readLessonUi.dispose();
+		dispose();
+	}
+	@Override
+	public void backButtonPressed() {
+		// TODO Auto-generated method stub
+		
+	}
+	public String textToBeDisplayed(String getTitleOfContentToRead){
+		String content = "";
+		String fileName = getTitleOfContentToRead + ".txt";
+		//System.out.println(fileName);
+		Path path = Paths.get(DIRECTORY, fileName);
+		try {
+			List<String> list = Files.readAllLines(path);
+			content = list.toString();
+		} catch (IOException e) {
+			//System.out.println("Error reading file");
+		}
+		return content;
 	}
 }

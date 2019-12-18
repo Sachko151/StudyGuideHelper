@@ -1,6 +1,5 @@
 package ui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -60,7 +59,7 @@ public class StartMenuUI extends JFrame implements IButtonCode{
 		btnCreate.setFont(new Font("Tahoma", Font.PLAIN, 34));
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ButtonPressedCode();
+				buttonPressedCode();
 			}
 		});
 		btnCreate.setBounds(30, 446, 233, 149);
@@ -74,6 +73,7 @@ public class StartMenuUI extends JFrame implements IButtonCode{
 				
 				StartMenuUI startMenuUi = new StartMenuUI();
 				startMenuUi.dispose();
+                dispose();
 			}
 		});
 		btnRead.setBackground(Color.ORANGE);
@@ -89,6 +89,7 @@ public class StartMenuUI extends JFrame implements IButtonCode{
 				
 				StartMenuUI startMenuUi = new StartMenuUI();
 				startMenuUi.dispose();
+                dispose();
 			}
 		});
 		btnDelete.setBackground(Color.RED);
@@ -106,11 +107,18 @@ public class StartMenuUI extends JFrame implements IButtonCode{
 		lblSelectOneOf.setBounds(10, 259, 822, 57);
 		contentPane.add(lblSelectOneOf);
 	}
-	public void ButtonPressedCode() {
+	public void buttonPressedCode() {
 		CreateMenuUI createMenuUi = new CreateMenuUI();
 		createMenuUi.setVisible(true);
 		
 		StartMenuUI startMenuUi = new StartMenuUI();
 		startMenuUi.dispose();
+        dispose();
+	}
+
+	@Override
+	public void backButtonPressed() {
+		// empty no back button found
+		
 	}
 }

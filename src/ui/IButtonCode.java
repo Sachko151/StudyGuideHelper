@@ -1,5 +1,6 @@
 package ui;
 
 public interface IButtonCode {
-	void ButtonPressedCode();
+	void buttonPressedCode();
+	void backButtonPressed();
 }

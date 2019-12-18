@@ -9,21 +9,24 @@ import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Lesson lesson = new Lesson("Biology", "Biology lesson", 5);
-        Definition definition = new Definition(lesson.getSubjectName(), lesson.getLessonName(), 5, "BIOLOGY DATA HERE!");
-        Definition definition2 = new Definition(lesson.getSubjectName(), lesson.getLessonName(), 5, "BIOLOGY DATA HERE!2");
-        ArrayList<String> definitions = new ArrayList<String>();
-        definitions.add(definition.getData());
-        definitions.add(definition2.getData());
-        lesson.setDefinitions(definitions);
-        String directory = "C:\\Users\\8530w\\Desktop\\Java\\GeographyHelper\\src\\textContent";
-        String fileName = "sample.txt";
-        String content = lesson.getLessonName() + lesson.getSubjectName() + lesson.getPageInStudentBook() +
-                "\n" + lesson.getDefinitions();
-        Path path = Paths.get(directory, fileName);
-        lesson.read(path);
+    public static final String DIRECTORY = "C:\\Users\\8530w\\Desktop\\Java\\GeographyHelper\\src\\textContent";
 
+    public static void main(String[] args) {
+
+        String fileName = "content.txt";
+        Path path = Paths.get(DIRECTORY, "content.txt");
+        try {
+            List<String> list = Files.readAllLines(path);
+            String[] titles = new String[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                titles[i] = list.get(i);
+                System.out.println(titles[i]);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file");
+        }
 
     }
+
+
 }
