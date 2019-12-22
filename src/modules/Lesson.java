@@ -85,7 +85,6 @@ public class Lesson implements ICRUD {
     }
 
     public String getMajorInfo() {
-        return "Subject name is: " + this.subjectName + " lesson name is " + this.lessonName + " page in Student Book "
-                + this.pageInStudentBook + "\n" + "Defintions are: " + this.definitions;
+        return this.subjectName + "\n" + this.lessonName + "\n"+ this.pageInStudentBook + "\n" + this.definitions.toString();
     }
 }

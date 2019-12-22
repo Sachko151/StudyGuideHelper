@@ -68,17 +68,17 @@ public class ReadLessonUI extends JFrame implements IButtonCode {
 		btnReadActBack.setBounds(680, 11, 165, 37);
 		contentPane.add(btnReadActBack);
 		
-		JLabel lblSubjectName = new JLabel("\u0418\u043C\u0435 \u043D\u0430 \u043F\u0440\u0435\u0434\u043C\u0435\u0442");
+		JLabel lblSubjectName = new JLabel(setSubjectName(getTitleOfContentToRead));
 		lblSubjectName.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblSubjectName.setBounds(145, 11, 195, 35);
 		contentPane.add(lblSubjectName);
 		
-		JLabel lblPage = new JLabel("00");
+		JLabel lblPage = new JLabel(setPage(getTitleOfContentToRead));
 		lblPage.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblPage.setBounds(490, 11, 149, 35);
 		contentPane.add(lblPage);
 		
-		JLabel lblLessonName = new JLabel("\u0418\u043C\u0435 \u043D\u0430 \u0437\u0430\u0433\u043B\u0430\u0432\u0438\u0435\u0442\u043E \u043D\u0430 \u0443\u0440\u043E\u043A\u0430");
+		JLabel lblLessonName = new JLabel(getTitleOfContentToRead);
 		lblLessonName.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblLessonName.setBounds(257, 75, 411, 35);
 		contentPane.add(lblLessonName);
@@ -96,17 +96,40 @@ public class ReadLessonUI extends JFrame implements IButtonCode {
 		// TODO Auto-generated method stub
 		
 	}
-	public String textToBeDisplayed(String getTitleOfContentToRead){
+	private String textToBeDisplayed(String getTitleOfContentToRead){
 		String content = "";
 		String fileName = getTitleOfContentToRead + ".txt";
-		//System.out.println(fileName);
 		Path path = Paths.get(DIRECTORY, fileName);
 		try {
 			List<String> list = Files.readAllLines(path);
 			content = list.toString();
 		} catch (IOException e) {
-			//System.out.println("Error reading file");
-		}
+        }
 		return content;
 	}
-}
+	private String setSubjectName(String getTitleOfContentToRead){
+        String fileName = getTitleOfContentToRead + ".txt";
+        Path path = Paths.get(DIRECTORY, fileName);
+        String subjectName = "";
+        try {
+            List<String> list = Files.readAllLines(path);
+            subjectName = list.get(0);
+        } catch (IOException | IndexOutOfBoundsException e) {
+            subjectName = "Empty";
+        }
+        return subjectName;
+    }
+    private String setPage(String getTitleOfContentToRead){
+        String fileName = getTitleOfContentToRead + ".txt";
+        Path path = Paths.get(DIRECTORY, fileName);
+        String subjectName;
+        try {
+            List<String> list = Files.readAllLines(path);
+            subjectName = list.get(2);
+        } catch (IOException | IndexOutOfBoundsException e) {
+            subjectName = "00";
+        }
+        return subjectName;
+    }
+    }
+

@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ui" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -42,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StartMenuUI">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="StudyGuideHelper" />
@@ -50,22 +50,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartMenuUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ui.StartMenuUI" />
-      <module name="StudyGuideHelper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StartMenuUI" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -106,6 +92,13 @@
       <workItem from="1576433872110" duration="1022000" />
       <workItem from="1576486759106" duration="1821000" />
       <workItem from="1576654569838" duration="1670000" />
+      <workItem from="1576782543646" duration="641000" />
+      <workItem from="1576826797480" duration="2164000" />
+      <workItem from="1576830840883" duration="714000" />
+      <workItem from="1576942097489" duration="712000" />
+      <workItem from="1576946576410" duration="1394000" />
+      <workItem from="1576953068979" duration="781000" />
+      <workItem from="1577002160178" duration="4550000" />
     </task>
     <servers />
   </component>

@@ -55,7 +55,7 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle3.setActionCommand(setTitle(2));
 
         JRadioButton rdbtnTitle4 = new JRadioButton(setTitle(3));
-        rdbtnTitle4.setBounds(6, 292, 109, 23);
+        rdbtnTitle4.setBounds(6, 240, 109, 23);
         contentPane.add(rdbtnTitle4);
         rdbtnTitle4.setActionCommand(setTitle(3));
 
@@ -65,12 +65,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle5.setActionCommand(setTitle(4));
 
         JRadioButton rdbtnTitle6 = new JRadioButton(setTitle(5));
-        rdbtnTitle6.setBounds(6, 240, 109, 23);
+        rdbtnTitle6.setBounds(6, 292, 109, 23);
         contentPane.add(rdbtnTitle6);
         rdbtnTitle6.setActionCommand(setTitle(5));
 
         JRadioButton rdbtnTitle7 = new JRadioButton(setTitle(6));
-        rdbtnTitle7.setBounds(6, 370, 109, 23);
+        rdbtnTitle7.setBounds(6, 318, 109, 23);
         contentPane.add(rdbtnTitle7);
         rdbtnTitle7.setActionCommand(setTitle(6));
 
@@ -80,12 +80,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle8.setActionCommand(setTitle(7));
 
         JRadioButton rdbtnTitle9 = new JRadioButton(setTitle(8));
-        rdbtnTitle9.setBounds(6, 318, 109, 23);
+        rdbtnTitle9.setBounds(6, 370, 109, 23);
         contentPane.add(rdbtnTitle9);
         rdbtnTitle9.setActionCommand(setTitle(8));
 
         JRadioButton rdbtnTitle10 = new JRadioButton(setTitle(9));
-        rdbtnTitle10.setBounds(6, 448, 109, 23);
+        rdbtnTitle10.setBounds(6, 396, 109, 23);
         contentPane.add(rdbtnTitle10);
         rdbtnTitle10.setActionCommand(setTitle(9));
 
@@ -95,12 +95,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle11.setActionCommand(setTitle(10));
 
         JRadioButton rdbtnTitle12 = new JRadioButton(setTitle(11));
-        rdbtnTitle12.setBounds(6, 396, 109, 23);
+        rdbtnTitle12.setBounds(6, 448, 109, 23);
         contentPane.add(rdbtnTitle12);
         rdbtnTitle12.setActionCommand(setTitle(11));
 
         JRadioButton rdbtnTitle13 = new JRadioButton(setTitle(12));
-        rdbtnTitle13.setBounds(167, 214, 109, 23);
+        rdbtnTitle13.setBounds(167, 162, 109, 23);
         contentPane.add(rdbtnTitle13);
         rdbtnTitle13.setActionCommand(setTitle(12));
 
@@ -110,12 +110,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle14.setActionCommand(setTitle(13));
 
         JRadioButton rdbtnTitle15 = new JRadioButton(setTitle(14));
-        rdbtnTitle15.setBounds(167, 162, 109, 23);
+        rdbtnTitle15.setBounds(167, 214, 109, 23);
         contentPane.add(rdbtnTitle15);
         rdbtnTitle15.setActionCommand(setTitle(14));
 
         JRadioButton rdbtnTitle16 = new JRadioButton(setTitle(15));
-        rdbtnTitle16.setBounds(167, 292, 109, 23);
+        rdbtnTitle16.setBounds(167, 240, 109, 23);
         contentPane.add(rdbtnTitle16);
         rdbtnTitle16.setActionCommand(setTitle(15));
 
@@ -125,12 +125,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle17.setActionCommand(setTitle(16));
 
         JRadioButton rdbtnTitle18 = new JRadioButton(setTitle(17));
-        rdbtnTitle18.setBounds(167, 240, 109, 23);
+        rdbtnTitle18.setBounds(167, 292, 109, 23);
         contentPane.add(rdbtnTitle18);
         rdbtnTitle18.setActionCommand(setTitle(17));
 
         JRadioButton rdbtnTitle19 = new JRadioButton(setTitle(18));
-        rdbtnTitle19.setBounds(167, 370, 109, 23);
+        rdbtnTitle19.setBounds(167, 318, 109, 23);
         contentPane.add(rdbtnTitle19);
         rdbtnTitle19.setActionCommand(setTitle(18));
 
@@ -140,12 +140,12 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle20.setActionCommand(setTitle(19));
 
         JRadioButton rdbtnTitle21 = new JRadioButton(setTitle(20));
-        rdbtnTitle21.setBounds(167, 318, 109, 23);
+        rdbtnTitle21.setBounds(167, 370, 109, 23);
         contentPane.add(rdbtnTitle21);
         rdbtnTitle21.setActionCommand(setTitle(20));
 
         JRadioButton rdbtnTitle22 = new JRadioButton(setTitle(21));
-        rdbtnTitle22.setBounds(167, 448, 109, 23);
+        rdbtnTitle22.setBounds(167, 396, 109, 23);
         contentPane.add(rdbtnTitle22);
         rdbtnTitle22.setActionCommand(setTitle(21));
 
@@ -155,7 +155,7 @@ public class ReadLessonMenuUI extends JFrame {
         rdbtnTitle23.setActionCommand(setTitle(22));
 
         JRadioButton rdbtnTitle24 = new JRadioButton(setTitle(23));
-        rdbtnTitle24.setBounds(167, 396, 109, 23);
+        rdbtnTitle24.setBounds(167, 448, 109, 23);
         contentPane.add(rdbtnTitle24);
         rdbtnTitle24.setActionCommand(setTitle(23));
 
@@ -426,7 +426,6 @@ public class ReadLessonMenuUI extends JFrame {
     }
     public void buttonPressedCode(ButtonGroup group) {
         ReadLessonUI readLessonUi = new ReadLessonUI(group.getSelection().getActionCommand());
-        System.out.println(group.getSelection().getActionCommand());
         readLessonUi.setVisible(true);
 
         dispose();
@@ -448,6 +447,11 @@ public class ReadLessonMenuUI extends JFrame {
         try {
             List<String> list = Files.readAllLines(path);
             title = list.get(i);
+            Path chechPath = Paths.get(DIRECTORY, title+".txt");
+            if (Files.exists(chechPath)){
+            } else {
+                title = "Empty";
+            }
         } catch (IOException | IndexOutOfBoundsException e) {
             title = "Empty";
         }

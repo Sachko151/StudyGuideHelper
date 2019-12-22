@@ -41,9 +41,9 @@ public class CreateDefinitionUI extends JFrame {
         contentPane.add(lblNewLabel);
 
         txtDefinition = new JTextField();
-        txtDefinition.setBounds(10, 110, 776, 216);
+        txtDefinition.setBounds(31, 68, 776, 357);
         contentPane.add(txtDefinition);
-        txtDefinition.setColumns(10);
+        txtDefinition.setColumns(20);
 
         JButton btnDefContinue = new JButton("\u041F\u0440\u043E\u0434\u044A\u043B\u0436\u0438");
         btnDefContinue.addActionListener(new ActionListener() {
@@ -68,7 +68,7 @@ public class CreateDefinitionUI extends JFrame {
         contentPane.add(btnDefBack);
     }
 
-    public void buttonPressedCode(String subjectName, String lessonName, int pageInStudentBook) {
+    private void buttonPressedCode(String subjectName, String lessonName, int pageInStudentBook) {
         CreateMenuUI createMenuUi = new CreateMenuUI();
         createMenuUi.setVisible(true);
         CreateDefinitionUI createDefinitionUi = new CreateDefinitionUI(subjectName, lessonName, pageInStudentBook);
@@ -77,7 +77,7 @@ public class CreateDefinitionUI extends JFrame {
         dispose();
     }
 
-    public void backButtonPressed(String subjectName, String lessonName, int pageInStudentBook) {
+    private void backButtonPressed(String subjectName, String lessonName, int pageInStudentBook) {
         CreateMenuUI createMenuUi = new CreateMenuUI();
         createMenuUi.setVisible(true);
         CreateDefinitionUI createDefinitionUi = new CreateDefinitionUI(subjectName, lessonName, pageInStudentBook);
@@ -85,7 +85,7 @@ public class CreateDefinitionUI extends JFrame {
         dispose();
     }
 
-    public void createLessonAndDefinitions(String subjectName, String lessonName, int pageInStudentBook){
+    private void createLessonAndDefinitions(String subjectName, String lessonName, int pageInStudentBook){
         Lesson lesson = new Lesson(subjectName, lessonName, pageInStudentBook);
         String definitionData = "\n" + txtDefinition.getText();
         definitionData = definitionData.replaceAll(">", "\n");
